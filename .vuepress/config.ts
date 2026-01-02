@@ -9,7 +9,7 @@ const domain = "https://github.com/tu3cn6";
 const tags = ["程序员", "编程", "计算机"];
 
 export default defineConfig({
-  // base: '/blog/',
+  base: '/blog/',
   title: "Yibing's Blog",
   description: "你好，我是李奕兵。这是我的个人博客，用来记录踩过的坑、学到的技术以及生活中的碎碎念。",
   head: [
