@@ -34,7 +34,7 @@ export default [
   },
   {
     title: "思考及感悟",
-    collapsable: true,
+    collapsable: false,
     children: [
       "思考及感悟/前端性能优化（把2M的文件变为75K的过程）.md",
       "思考及感悟/HTTP 缓存策略.md",
