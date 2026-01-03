@@ -57,7 +57,7 @@ document.write('webpack编译css资源');
   <title>Webpack 完全教程</title>
 </head>
 <body>
-  <p class="demo">用友网络FED团队</p>
+  <p class="demo">基础架构团队</p>
   <script src="./bundle.js"></script>
 </body>
 </html>

@@ -1,6 +1,22 @@
 export default [
   "",
   {
+    title: "CSS篇",
+    collapsable: true,
+    children: [
+      "CSS篇/css选择器.md",
+      "CSS篇/rem详解及使用方法.md",
+      "CSS篇/CSS中规则@media的用法.md",
+      "CSS篇/css3 transition 笔记.md",
+      "CSS篇/垂直居中.md",
+      "CSS篇/文本过长显示省略号的几种方式.md",
+      "CSS篇/根据包含的子元素个数，实现不同的样式.md",
+      "CSS篇/如何解决 float 元素浮动后高度不一致导致错位的问题.md",
+      "CSS篇/在 less 中如何使用 CSS3 的 calc 属性.md",
+      "CSS篇/Less篇-模拟for循环生成css.md",
+    ],
+  },
+  {
     title: "webpack 完全教程",
     collapsable: true,
     children: [
@@ -20,6 +36,16 @@ export default [
     title: "思考及感悟",
     collapsable: true,
     children: [
+      "思考及感悟/前端性能优化（把2M的文件变为75K的过程）.md",
+      "思考及感悟/HTTP 缓存策略.md",
+      "思考及感悟/常见的web安全问题总结.md",
+      "思考及感悟/如何区分基础组件和业务组件.md",
+      "思考及感悟/flex 布局在移动端的兼容性问题.md",
+      "思考及感悟/浏览器渲染原理及性能优化技巧与实践.md",
+      "思考及感悟/移动前端性能优化的一些策略.md",
+      "思考及感悟/跨平台开发方案.md",
+      "思考及感悟/关于处理跨域问题的讨论.md",
+      "思考及感悟/扫盲CRLF、CR、LF都是什么鬼？.md",
       "思考及感悟/对前端开发中组件、插件、控件的理解.md",
       "思考及感悟/更少，但更好.md",
       "思考及感悟/6月12-6月17日~工作思考篇.md",
