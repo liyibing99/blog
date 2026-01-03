@@ -1,15 +1,15 @@
 # CSS中规则@media的用法
 
-## CSS中@规则是由@符号开始的，例如[@import](https://github.com/import)，[@page](https://github.com/page)等。
+## CSS中@规则是由@符号开始的，例如`@import`，`@page`等。
 
-[@media](https://github.com/media)就是其中的一个规则。  
-[@media](https://github.com/media)可以让你根据不同的屏幕大小而使用不同的样式，这可以使得不需要js代码就能实现响应式布局。  
-不过[@media](https://github.com/media)只能用于较新的浏览器，对于老式的IE，不支持。下面是[@media](https://github.com/media)
+`@media`就是其中的一个规则。  
+`@media`可以让你根据不同的屏幕大小而使用不同的样式，这可以使得不需要js代码就能实现响应式布局。  
+不过`@media`只能用于较新的浏览器，对于老式的IE，不支持。下面是`@media`
 支持的浏览器。  
 ![wkiol1s0jyxg0tnmaabm5ac6nug635](https://cloud.githubusercontent.com/assets/21334770/18620488/4ebb28d0-7e46-11e6-8c1c-b0fb19ee9fd9.jpg)
 
-[@media](https://github.com/media)的语法比较简单，一眼就能看懂。  
-[@media](https://github.com/media) mediatype and|not|only (media feature) {  
+`@media`的语法比较简单，一眼就能看懂。  
+`@media` mediatype and|not|only (media feature) {  
 CSS-Code;  
 }  
 可以参考[http://www.w3cschool.cc/cssref/css3-pr-mediaquery.html值的说明。](http://www.w3cschool.cc/cssref/css3-pr-mediaquery.html%E5%80%BC%E7%9A%84%E8%AF%B4%E6%98%8E%E3%80%82)  
