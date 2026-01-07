@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前端工程化之部署策略 | Yibing&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/blog/favicon.ico">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?2675818a983a3131404cee835018f016";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+    <meta name="description" content="你好，我是李奕兵。这是我的个人博客，用来记录踩过的坑、学到的技术以及生活中的碎碎念。">
+    <meta property="article:modified_time" content="2026-01-07T20:57:10.000Z">
+    <meta property="og:site_name" content="Yibing&#39;s Blog">
+    <meta property="og:title" content="前端工程化之部署策略">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://github.com/tu3cn6/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/">
+    <meta name="twitter:title" content="前端工程化之部署策略">
+    <meta name="twitter:url" content="https://github.com/tu3cn6/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="程序员, 编程, 计算机">
+    <meta property="article:tag" content="程序员">
+    <meta name="keywords" content="编程学习路线, 编程知识百科, Java, 前端, 开发, 编程分享, 项目, IT, 博客, blog">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.80609ca5.css" as="style"><link rel="preload" href="/blog/assets/js/app.06904aa3.js" as="script"><link rel="preload" href="/blog/assets/js/2.f4db22c0.js" as="script"><link rel="preload" href="/blog/assets/js/74.b2f828de.js" as="script"><link rel="prefetch" href="/blog/assets/js/1.772e8449.js"><link rel="prefetch" href="/blog/assets/js/10.40b6837e.js"><link rel="prefetch" href="/blog/assets/js/11.78a8555f.js"><link rel="prefetch" href="/blog/assets/js/12.0d5ef7f0.js"><link rel="prefetch" href="/blog/assets/js/13.8352f638.js"><link rel="prefetch" href="/blog/assets/js/14.c7dc96c5.js"><link rel="prefetch" href="/blog/assets/js/15.970a8ca5.js"><link rel="prefetch" href="/blog/assets/js/16.ac3baac4.js"><link rel="prefetch" href="/blog/assets/js/17.c186ca40.js"><link rel="prefetch" href="/blog/assets/js/18.d0f0bd51.js"><link rel="prefetch" href="/blog/assets/js/19.5740e4d6.js"><link rel="prefetch" href="/blog/assets/js/20.8885a4fa.js"><link rel="prefetch" href="/blog/assets/js/21.2a33c70e.js"><link rel="prefetch" href="/blog/assets/js/22.3e8347a6.js"><link rel="prefetch" href="/blog/assets/js/23.ceb5a5ff.js"><link rel="prefetch" href="/blog/assets/js/24.e1d129a3.js"><link rel="prefetch" href="/blog/assets/js/25.15e1f641.js"><link rel="prefetch" href="/blog/assets/js/26.35b2bbdc.js"><link rel="prefetch" href="/blog/assets/js/27.2202846e.js"><link rel="prefetch" href="/blog/assets/js/28.be2f64ba.js"><link rel="prefetch" href="/blog/assets/js/29.5cff4c5c.js"><link rel="prefetch" href="/blog/assets/js/3.4dc033c7.js"><link rel="prefetch" href="/blog/assets/js/30.a2448555.js"><link rel="prefetch" href="/blog/assets/js/31.8b44d617.js"><link rel="prefetch" href="/blog/assets/js/32.24612149.js"><link rel="prefetch" href="/blog/assets/js/33.9d59952b.js"><link rel="prefetch" href="/blog/assets/js/34.e38a5959.js"><link rel="prefetch" href="/blog/assets/js/35.61905ede.js"><link rel="prefetch" href="/blog/assets/js/36.4e66badc.js"><link rel="prefetch" href="/blog/assets/js/37.35efe489.js"><link rel="prefetch" href="/blog/assets/js/38.43860060.js"><link rel="prefetch" href="/blog/assets/js/39.6f68f650.js"><link rel="prefetch" href="/blog/assets/js/4.2f502b73.js"><link rel="prefetch" href="/blog/assets/js/40.38e71f9c.js"><link rel="prefetch" href="/blog/assets/js/41.2f322aa9.js"><link rel="prefetch" href="/blog/assets/js/42.70f236fc.js"><link rel="prefetch" href="/blog/assets/js/43.e4cc18eb.js"><link rel="prefetch" href="/blog/assets/js/44.b0385cba.js"><link rel="prefetch" href="/blog/assets/js/45.53635035.js"><link rel="prefetch" href="/blog/assets/js/46.115a38e6.js"><link rel="prefetch" href="/blog/assets/js/47.16b28a03.js"><link rel="prefetch" href="/blog/assets/js/48.df68afc4.js"><link rel="prefetch" href="/blog/assets/js/49.98c59efc.js"><link rel="prefetch" href="/blog/assets/js/5.7b1f056c.js"><link rel="prefetch" href="/blog/assets/js/50.b9762e5c.js"><link rel="prefetch" href="/blog/assets/js/51.cd690f38.js"><link rel="prefetch" href="/blog/assets/js/52.2acc35ef.js"><link rel="prefetch" href="/blog/assets/js/53.3057074a.js"><link rel="prefetch" href="/blog/assets/js/54.9b06af7b.js"><link rel="prefetch" href="/blog/assets/js/55.a93cd97e.js"><link rel="prefetch" href="/blog/assets/js/56.d0c21af0.js"><link rel="prefetch" href="/blog/assets/js/57.ca9e7d1e.js"><link rel="prefetch" href="/blog/assets/js/58.5801ee19.js"><link rel="prefetch" href="/blog/assets/js/59.a89f9492.js"><link rel="prefetch" href="/blog/assets/js/6.056886f1.js"><link rel="prefetch" href="/blog/assets/js/60.9b246fc5.js"><link rel="prefetch" href="/blog/assets/js/61.f84d67a0.js"><link rel="prefetch" href="/blog/assets/js/62.8361b31f.js"><link rel="prefetch" href="/blog/assets/js/63.35569072.js"><link rel="prefetch" href="/blog/assets/js/64.6c2478e6.js"><link rel="prefetch" href="/blog/assets/js/65.28cd1dcf.js"><link rel="prefetch" href="/blog/assets/js/66.be4a9670.js"><link rel="prefetch" href="/blog/assets/js/67.64e6eaa2.js"><link rel="prefetch" href="/blog/assets/js/68.72d5cc81.js"><link rel="prefetch" href="/blog/assets/js/69.aedc3bb0.js"><link rel="prefetch" href="/blog/assets/js/7.a96cecf9.js"><link rel="prefetch" href="/blog/assets/js/70.c255e0c6.js"><link rel="prefetch" href="/blog/assets/js/71.cdd9c735.js"><link rel="prefetch" href="/blog/assets/js/72.7524cbcb.js"><link rel="prefetch" href="/blog/assets/js/73.155182b9.js"><link rel="prefetch" href="/blog/assets/js/75.ef589a84.js"><link rel="prefetch" href="/blog/assets/js/76.8f9b9ca8.js"><link rel="prefetch" href="/blog/assets/js/77.2d1b52cb.js"><link rel="prefetch" href="/blog/assets/js/78.0facbcfb.js"><link rel="prefetch" href="/blog/assets/js/79.71a61efa.js"><link rel="prefetch" href="/blog/assets/js/80.e4378d4c.js"><link rel="prefetch" href="/blog/assets/js/81.8f074454.js"><link rel="prefetch" href="/blog/assets/js/82.38a78d96.js"><link rel="prefetch" href="/blog/assets/js/83.bc1d3c22.js"><link rel="prefetch" href="/blog/assets/js/84.a7d7245c.js"><link rel="prefetch" href="/blog/assets/js/85.f39453ca.js"><link rel="prefetch" href="/blog/assets/js/86.bd288457.js"><link rel="prefetch" href="/blog/assets/js/87.18ba0462.js"><link rel="prefetch" href="/blog/assets/js/88.19230304.js"><link rel="prefetch" href="/blog/assets/js/89.d4f0b545.js"><link rel="prefetch" href="/blog/assets/js/vendors~docsearch.9f962556.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.80609ca5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/logo.png" alt="Yibing's Blog" class="logo"> <span class="site-name can-hide">Yibing's Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/工作思考及感悟/" class="nav-link">
+  工作思考及感悟
+</a></div><div class="nav-item"><a href="/blog/学习路线/" class="nav-link">
+  学习路线
+</a></div> <a href="https://github.com/tu3cn6" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/工作思考及感悟/" class="nav-link">
+  工作思考及感悟
+</a></div><div class="nav-item"><a href="/blog/学习路线/" class="nav-link">
+  学习路线
+</a></div> <a href="https://github.com/tu3cn6" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/blog/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83%E5%8F%8A%E6%84%9F%E6%82%9F/" class="sidebar-link">工作思考及感悟</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>webpack 完全教程</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>思考及感悟</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E6%8A%8A2m%E7%9A%84%E6%96%87%E4%BB%B6%E5%8F%98%E4%B8%BA75k%E7%9A%84%E8%BF%87%E7%A8%8B/" class="sidebar-link">前端性能优化（把2M的文件变为75K的过程）</a></li><li><a href="/blog/http-%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/" class="sidebar-link">HTTP 缓存策略</a></li><li><a href="/blog/%E5%B8%B8%E8%A7%81%E7%9A%84web%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="sidebar-link">常见的web安全问题总结</a></li><li><a href="/blog/%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E5%92%8C%E4%B8%9A%E5%8A%A1%E7%BB%84%E4%BB%B6/" class="sidebar-link">如何区分基础组件和业务组件</a></li><li><a href="/blog/flex-%E5%B8%83%E5%B1%80%E5%9C%A8%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/" class="sidebar-link">flex 布局在移动端的兼容性问题</a></li><li><a href="/blog/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7%E4%B8%8E%E5%AE%9E%E8%B7%B5/" class="sidebar-link">浏览器渲染原理及性能优化技巧与实践</a></li><li><a href="/blog/%E7%A7%BB%E5%8A%A8%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AD%96%E7%95%A5/" class="sidebar-link">移动前端性能优化的一些策略</a></li><li><a href="/blog/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E6%96%B9%E6%A1%88/" class="sidebar-link">跨平台开发方案</a></li><li><a href="/blog/%E5%85%B3%E4%BA%8E%E5%A4%84%E7%90%86%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E8%AE%A8%E8%AE%BA/" class="sidebar-link">关于处理跨域问题的讨论</a></li><li><a href="/blog/%E6%89%AB%E7%9B%B2crlf%E3%80%81cr%E3%80%81lf%E9%83%BD%E6%98%AF%E4%BB%80%E4%B9%88%E9%AC%BC/" class="sidebar-link">扫盲CRLF、CR、LF都是什么鬼？</a></li><li><a href="/blog/%E5%AF%B9%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%AD%E7%BB%84%E4%BB%B6%E3%80%81%E6%8F%92%E4%BB%B6%E3%80%81%E6%8E%A7%E4%BB%B6%E7%9A%84%E7%90%86%E8%A7%A3/" class="sidebar-link">对前端开发中组件、插件、控件的理解</a></li><li><a href="/blog/%E6%9B%B4%E5%B0%91-%E4%BD%86%E6%9B%B4%E5%A5%BD/" class="sidebar-link">更少，但更好</a></li><li><a href="/blog/_6%E6%9C%8812-6%E6%9C%8817%E6%97%A5-%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83%E7%AF%87/" class="sidebar-link">6月12-6月17日~工作思考篇</a></li><li><a href="/blog/%E5%AF%B9%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%A4%E7%82%B9%E5%BB%BA%E8%AE%AE/" class="sidebar-link">对日常开发的两点建议</a></li><li><a href="/blog/%E4%B8%8B%E4%B8%80%E6%AD%A5%E6%88%91%E4%BB%AC%E8%AF%A5%E6%80%8E%E4%B9%88%E8%B5%B0/" class="sidebar-link">下一步我们该怎么走</a></li><li><a href="/blog/%E5%83%8F%E5%86%99%E4%BB%A3%E7%A0%81%E4%B8%80%E6%A0%B7%E5%86%99%E6%96%87%E6%A1%A3-%E4%B8%A5%E8%B0%A8-%E5%83%8F%E5%86%99%E6%96%87%E6%A1%A3%E4%B8%80%E6%A0%B7%E5%86%99%E4%BB%A3%E7%A0%81-%E8%A7%84%E8%8C%83/" class="sidebar-link">像写代码一样写文档，严谨！像写文档一样写代码，规范！</a></li><li><a href="/blog/vue3-composition-api-%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" class="sidebar-link">Vue3 Composition API 实战指南</a></li><li><a href="/blog/typescript-%E5%9C%A8%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="sidebar-link">TypeScript 在前端项目中的最佳实践</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B-ci-cd-%E5%AE%9E%E8%B7%B5/" class="sidebar-link">前端工程化之 CI/CD 实践</a></li><li><a href="/blog/%E5%BE%AE%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" class="sidebar-link">微前端架构设计与实现</a></li><li><a href="/blog/webassembly-%E5%9C%A8%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" class="sidebar-link">WebAssembly 在前端性能优化中的应用</a></li><li><a href="/blog/react-hooks-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="sidebar-link">React Hooks 最佳实践</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88%E5%AF%B9%E6%AF%94/" class="sidebar-link">前端状态管理方案对比</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E4%B8%8E%E4%BC%98%E5%8C%96/" class="sidebar-link">前端性能监控与优化</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E5%AE%9E%E8%B7%B5/" class="sidebar-link">前端安全防护实践</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5%E4%B8%8E%E5%AE%9E%E8%B7%B5/" class="sidebar-link">前端测试策略与实践</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" class="sidebar-link">前端工程化之代码规范</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/" class="sidebar-link">前端工程化之项目结构设计</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E6%A8%A1%E5%9D%97%E5%8C%96%E5%BC%80%E5%8F%91/" class="sidebar-link">前端工程化之模块化开发</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E6%9E%84%E5%BB%BA%E4%BC%98%E5%8C%96/" class="sidebar-link">前端工程化之构建优化</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/" aria-current="page" class="active sidebar-link">前端工程化之部署策略</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#部署概述" class="sidebar-link">部署概述</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#部署环境" class="sidebar-link">部署环境</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#容器化部署" class="sidebar-link">容器化部署</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#ci-cd-部署" class="sidebar-link">CI/CD 部署</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#云平台部署" class="sidebar-link">云平台部署</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#kubernetes-部署" class="sidebar-link">Kubernetes 部署</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#蓝绿部署" class="sidebar-link">蓝绿部署</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#金丝雀发布" class="sidebar-link">金丝雀发布</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#监控和日志" class="sidebar-link">监控和日志</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#回滚策略" class="sidebar-link">回滚策略</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#最佳实践" class="sidebar-link">最佳实践</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#总结" class="sidebar-link">总结</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="content"><div style="width:100%"><div class="theme-default-content custom-content content__default"><h1 id="前端工程化之部署策略"><a href="#前端工程化之部署策略" class="header-anchor">#</a> 前端工程化之部署策略</h1> <p>部署策略是前端工程化的最后一步，也是确保应用稳定运行的关键环节。本文将全面介绍前端部署的各种策略和最佳实践。</p> <h2 id="部署概述"><a href="#部署概述" class="header-anchor">#</a> 部署概述</h2> <h3 id="部署的重要性"><a href="#部署的重要性" class="header-anchor">#</a> 部署的重要性</h3> <ol><li><strong>保证可用性</strong>：确保应用能够稳定、可靠地运行</li> <li><strong>提升性能</strong>：通过合理的部署策略提高应用性能</li> <li><strong>降低风险</strong>：减少部署过程中的风险和故障</li> <li><strong>提高效率</strong>：自动化部署流程，提高发布效率</li></ol> <h3 id="部署目标"><a href="#部署目标" class="header-anchor">#</a> 部署目标</h3> <ul><li>高可用性</li> <li>快速部署</li> <li>零停机更新</li> <li>易于回滚</li> <li>成本效益</li></ul> <h2 id="部署环境"><a href="#部署环境" class="header-anchor">#</a> 部署环境</h2> <h3 id="_1-开发环境"><a href="#_1-开发环境" class="header-anchor">#</a> 1. 开发环境</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># docker-compose.dev.yml</span>
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.8'</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> .
+      <span class="token key atrule">dockerfile</span><span class="token punctuation">:</span> Dockerfile.dev
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;3000:3000&quot;</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> .<span class="token punctuation">:</span>/app
+      <span class="token punctuation">-</span> /app/node_modules
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> NODE_ENV=development
+      <span class="token punctuation">-</span> API_BASE_URL=http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>5000/api
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="_2-测试环境"><a href="#_2-测试环境" class="header-anchor">#</a> 2. 测试环境</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># docker-compose.test.yml</span>
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.8'</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> .
+      <span class="token key atrule">dockerfile</span><span class="token punctuation">:</span> Dockerfile
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;3000:80&quot;</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> NODE_ENV=test
+      <span class="token punctuation">-</span> API_BASE_URL=https<span class="token punctuation">:</span>//test<span class="token punctuation">-</span>api.example.com
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="_3-生产环境"><a href="#_3-生产环境" class="header-anchor">#</a> 3. 生产环境</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># docker-compose.prod.yml</span>
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.8'</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">:</span>latest
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;80:80&quot;</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;443:443&quot;</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> NODE_ENV=production
+      <span class="token punctuation">-</span> API_BASE_URL=https<span class="token punctuation">:</span>//api.example.com
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="容器化部署"><a href="#容器化部署" class="header-anchor">#</a> 容器化部署</h2> <h3 id="_1-docker-配置"><a href="#_1-docker-配置" class="header-anchor">#</a> 1. Docker 配置</h3> <h4 id="dockerfile"><a href="#dockerfile" class="header-anchor">#</a> Dockerfile</h4> <div class="language-dockerfile line-numbers-mode"><pre class="language-dockerfile"><code><span class="token comment"># 多阶段构建</span>
+<span class="token instruction"><span class="token keyword">FROM</span> node:18-alpine <span class="token keyword">AS</span> builder</span>
+
+<span class="token instruction"><span class="token keyword">WORKDIR</span> /app</span>
+
+<span class="token instruction"><span class="token keyword">COPY</span> package*.json ./</span>
+<span class="token instruction"><span class="token keyword">RUN</span> npm ci</span>
+
+<span class="token instruction"><span class="token keyword">COPY</span> . .</span>
+<span class="token instruction"><span class="token keyword">RUN</span> npm run build</span>
+
+<span class="token comment"># 生产镜像</span>
+<span class="token instruction"><span class="token keyword">FROM</span> nginx:alpine</span>
+
+<span class="token instruction"><span class="token keyword">COPY</span> <span class="token options"><span class="token property">--from</span><span class="token punctuation">=</span><span class="token string">builder</span></span> /app/dist /usr/share/nginx/html</span>
+<span class="token instruction"><span class="token keyword">COPY</span> nginx.conf /etc/nginx/nginx.conf</span>
+
+<span class="token instruction"><span class="token keyword">EXPOSE</span> 80</span>
+
+<span class="token instruction"><span class="token keyword">CMD</span> [<span class="token string">&quot;nginx&quot;</span>, <span class="token string">&quot;-g&quot;</span>, <span class="token string">&quot;daemon off;&quot;</span>]</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h4 id="dockerfile-dev"><a href="#dockerfile-dev" class="header-anchor">#</a> Dockerfile.dev</h4> <div class="language-dockerfile line-numbers-mode"><pre class="language-dockerfile"><code><span class="token instruction"><span class="token keyword">FROM</span> node:18-alpine</span>
+
+<span class="token instruction"><span class="token keyword">WORKDIR</span> /app</span>
+
+<span class="token instruction"><span class="token keyword">COPY</span> package*.json ./</span>
+<span class="token instruction"><span class="token keyword">RUN</span> npm install</span>
+
+<span class="token instruction"><span class="token keyword">COPY</span> . .</span>
+
+<span class="token instruction"><span class="token keyword">EXPOSE</span> 3000</span>
+
+<span class="token instruction"><span class="token keyword">CMD</span> [<span class="token string">&quot;npm&quot;</span>, <span class="token string">&quot;run&quot;</span>, <span class="token string">&quot;dev&quot;</span>]</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="_2-nginx-配置"><a href="#_2-nginx-配置" class="header-anchor">#</a> 2. Nginx 配置</h3> <div class="language-nginx line-numbers-mode"><pre class="language-nginx"><code><span class="token comment"># nginx.conf</span>
+<span class="token directive"><span class="token keyword">user</span> nginx</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">worker_processes</span> auto</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">error_log</span> /var/log/nginx/error.log warn</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">pid</span> /var/run/nginx.pid</span><span class="token punctuation">;</span>
+
+<span class="token directive"><span class="token keyword">events</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">worker_connections</span> <span class="token number">1024</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token directive"><span class="token keyword">http</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">include</span> /etc/nginx/mime.types</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">default_type</span> application/octet-stream</span><span class="token punctuation">;</span>
+
+    <span class="token directive"><span class="token keyword">log_format</span> main <span class="token string">'<span class="token variable">$remote_addr</span> - <span class="token variable">$remote_user</span> [<span class="token variable">$time_local]</span> &quot;<span class="token variable">$request</span>&quot; '</span>
+                    <span class="token string">'<span class="token variable">$status</span> <span class="token variable">$body_bytes_sent</span> &quot;<span class="token variable">$http_referer</span>&quot; '</span>
+                    <span class="token string">'&quot;<span class="token variable">$http_user_agent</span>&quot; &quot;<span class="token variable">$http_x_forwarded_for</span>&quot;'</span></span><span class="token punctuation">;</span>
+
+    <span class="token directive"><span class="token keyword">access_log</span> /var/log/nginx/access.log main</span><span class="token punctuation">;</span>
+
+    <span class="token directive"><span class="token keyword">sendfile</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">tcp_nopush</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">keepalive_timeout</span> <span class="token number">65</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">gzip</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">gzip_vary</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">gzip_min_length</span> <span class="token number">1024</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">gzip_types</span> text/plain text/css text/xml text/javascript 
+               application/x-javascript application/xml+rss 
+               application/javascript application/json</span><span class="token punctuation">;</span>
+
+    <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span> localhost</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">root</span> /usr/share/nginx/html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">index</span> index.html</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">location</span> ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff2?)$</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">expires</span> <span class="token number">1y</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">add_header</span> Cache-Control <span class="token string">&quot;public, immutable&quot;</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">location</span> /api/</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">proxy_pass</span> http://backend:5000</span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">proxy_set_header</span> Host <span class="token variable">$host</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Real-IP <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Forwarded-Proto <span class="token variable">$scheme</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br></div></div><h2 id="ci-cd-部署"><a href="#ci-cd-部署" class="header-anchor">#</a> CI/CD 部署</h2> <h3 id="_1-github-actions"><a href="#_1-github-actions" class="header-anchor">#</a> 1. GitHub Actions</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># .github/workflows/deploy.yml</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> Deploy
+
+<span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">push</span><span class="token punctuation">:</span>
+    <span class="token key atrule">branches</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>main<span class="token punctuation">]</span>
+
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">build-and-deploy</span><span class="token punctuation">:</span>
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Checkout code
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v3
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Setup Node.js
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v3
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">node-version</span><span class="token punctuation">:</span> <span class="token string">'18'</span>
+          <span class="token key atrule">cache</span><span class="token punctuation">:</span> <span class="token string">'npm'</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Install dependencies
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> npm ci
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Run tests
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> npm test
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Build
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> npm run build
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Build Docker image
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          docker build -t my-app:${{ github.sha }} .
+          docker tag my-app:${{ github.sha }} my-app:latest</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Login to Docker Hub
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> docker/login<span class="token punctuation">-</span>action@v2
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">username</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.DOCKER_USERNAME <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">password</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.DOCKER_PASSWORD <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Push to Docker Hub
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          docker push my-app:${{ github.sha }}
+          docker push my-app:latest</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Deploy to server
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> appleboy/ssh<span class="token punctuation">-</span>action@master
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">host</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.SERVER_HOST <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">username</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.SERVER_USER <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">key</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.SERVER_SSH_KEY <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">script</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+            docker pull my-app:latest
+            docker stop my-app || true
+            docker rm my-app || true
+            docker run -d --name my-app -p 80:80 my-app:latest</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br></div></div><h3 id="_2-gitlab-ci"><a href="#_2-gitlab-ci" class="header-anchor">#</a> 2. GitLab CI</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># .gitlab-ci.yml</span>
+<span class="token key atrule">stages</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> build
+  <span class="token punctuation">-</span> test
+  <span class="token punctuation">-</span> deploy
+
+<span class="token key atrule">variables</span><span class="token punctuation">:</span>
+  <span class="token key atrule">DOCKER_IMAGE</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+
+<span class="token key atrule">build</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> build
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> node<span class="token punctuation">:</span><span class="token number">18</span>
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> npm ci
+    <span class="token punctuation">-</span> npm run build
+  <span class="token key atrule">artifacts</span><span class="token punctuation">:</span>
+    <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> dist/
+
+<span class="token key atrule">test</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> test
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> node<span class="token punctuation">:</span><span class="token number">18</span>
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> npm ci
+    <span class="token punctuation">-</span> npm test
+
+<span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">stage</span><span class="token punctuation">:</span> deploy
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> docker<span class="token punctuation">:</span>latest
+  <span class="token key atrule">services</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> docker<span class="token punctuation">:</span>dind
+  <span class="token key atrule">script</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> docker build <span class="token punctuation">-</span>t $DOCKER_IMAGE<span class="token punctuation">:</span>$CI_COMMIT_SHA .
+    <span class="token punctuation">-</span> docker tag $DOCKER_IMAGE<span class="token punctuation">:</span>$CI_COMMIT_SHA $DOCKER_IMAGE<span class="token punctuation">:</span>latest
+    <span class="token punctuation">-</span> docker login <span class="token punctuation">-</span>u $CI_REGISTRY_USER <span class="token punctuation">-</span>p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    <span class="token punctuation">-</span> docker push $DOCKER_IMAGE<span class="token punctuation">:</span>$CI_COMMIT_SHA
+    <span class="token punctuation">-</span> docker push $DOCKER_IMAGE<span class="token punctuation">:</span>latest
+  <span class="token key atrule">only</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> main
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><h3 id="_3-jenkins-pipeline"><a href="#_3-jenkins-pipeline" class="header-anchor">#</a> 3. Jenkins Pipeline</h3> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token comment">// Jenkinsfile</span>
+pipeline <span class="token punctuation">{</span>
+    agent any
+
+    environment <span class="token punctuation">{</span>
+        DOCKER_IMAGE <span class="token operator">=</span> <span class="token string">'my-app'</span>
+        DOCKER_TAG <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">&quot;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">env<span class="token punctuation">.</span>BUILD_ID</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&quot;</span></span>
+    <span class="token punctuation">}</span>
+
+    stages <span class="token punctuation">{</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Checkout'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                checkout scm
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Install'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                sh <span class="token string">'npm ci'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Test'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                sh <span class="token string">'npm test'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                sh <span class="token string">'npm run build'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Docker Build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                sh <span class="token interpolation-string"><span class="token string">&quot;docker build -t </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">DOCKER_IMAGE</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">DOCKER_TAG</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> .&quot;</span></span>
+                sh <span class="token interpolation-string"><span class="token string">&quot;docker tag </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">DOCKER_IMAGE</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">DOCKER_TAG</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">DOCKER_IMAGE</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">:latest&quot;</span></span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Docker Push'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                <span class="token function">withCredentials</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token function">usernamePassword</span><span class="token punctuation">(</span>
+                    credentialsId<span class="token punctuation">:</span> <span class="token string">'docker-hub'</span><span class="token punctuation">,</span>
+                    usernameVariable<span class="token punctuation">:</span> <span class="token string">'DOCKER_USER'</span><span class="token punctuation">,</span>
+                    passwordVariable<span class="token punctuation">:</span> <span class="token string">'DOCKER_PASS'</span>
+                <span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    sh <span class="token interpolation-string"><span class="token string">&quot;docker login -u </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">DOCKER_USER</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> -p </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">DOCKER_PASS</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&quot;</span></span>
+                    sh <span class="token interpolation-string"><span class="token string">&quot;docker push </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">DOCKER_IMAGE</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">DOCKER_TAG</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&quot;</span></span>
+                    sh <span class="token interpolation-string"><span class="token string">&quot;docker push </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">DOCKER_IMAGE</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">:latest&quot;</span></span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Deploy'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                sh <span class="token string">'kubectl set image deployment/my-app my-app=${DOCKER_IMAGE}:${DOCKER_TAG}'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    post <span class="token punctuation">{</span>
+        success <span class="token punctuation">{</span>
+            echo <span class="token string">'Deployment successful!'</span>
+        <span class="token punctuation">}</span>
+        failure <span class="token punctuation">{</span>
+            echo <span class="token string">'Deployment failed!'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br></div></div><h2 id="云平台部署"><a href="#云平台部署" class="header-anchor">#</a> 云平台部署</h2> <h3 id="_1-aws-部署"><a href="#_1-aws-部署" class="header-anchor">#</a> 1. AWS 部署</h3> <h4 id="s3-cloudfront"><a href="#s3-cloudfront" class="header-anchor">#</a> S3 + CloudFront</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 部署到 S3</span>
+aws s3 <span class="token function">sync</span> ./dist s3://my-bucket <span class="token parameter variable">--delete</span>
+
+<span class="token comment"># 配置 CloudFront</span>
+aws cloudfront create-distribution <span class="token punctuation">\</span>
+  --distribution-config <span class="token string">'{
+    &quot;CallerReference&quot;: &quot;my-distribution&quot;,
+    &quot;Comment&quot;: &quot;My App Distribution&quot;,
+    &quot;DefaultRootObject&quot;: &quot;index.html&quot;,
+    &quot;Origins&quot;: {
+      &quot;Items&quot;: [
+        {
+          &quot;Id&quot;: &quot;S3Origin&quot;,
+          &quot;DomainName&quot;: &quot;my-bucket.s3.amazonaws.com&quot;,
+          &quot;S3OriginConfig&quot;: {}
+        }
+      ],
+      &quot;Quantity&quot;: 1
+    },
+    &quot;DefaultCacheBehavior&quot;: {
+      &quot;TargetOriginId&quot;: &quot;S3Origin&quot;,
+      &quot;ViewerProtocolPolicy&quot;: &quot;redirect-to-https&quot;,
+      &quot;AllowedMethods&quot;: {
+        &quot;Quantity&quot;: 2,
+        &quot;Items&quot;: [&quot;GET&quot;, &quot;HEAD&quot;]
+      },
+      &quot;ForwardedValues&quot;: {
+        &quot;QueryString&quot;: false,
+        &quot;Cookies&quot;: {
+          &quot;Forward&quot;: &quot;none&quot;
+        }
+      }
+    },
+    &quot;Enabled&quot;: true
+  }'</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><h4 id="ec2-部署"><a href="#ec2-部署" class="header-anchor">#</a> EC2 部署</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 创建 EC2 实例</span>
+aws ec2 run-instances <span class="token punctuation">\</span>
+  --image-id ami-0abcdef1234567890 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--count</span> <span class="token number">1</span> <span class="token punctuation">\</span>
+  --instance-type t2.micro <span class="token punctuation">\</span>
+  --key-name my-key-pair <span class="token punctuation">\</span>
+  --security-group-ids sg-903004f8 <span class="token punctuation">\</span>
+  --user-data file://user-data.sh
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># user-data.sh</span>
+<span class="token comment">#!/bin/bash</span>
+yum update <span class="token parameter variable">-y</span>
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> <span class="token function">docker</span>
+<span class="token function">service</span> <span class="token function">docker</span> start
+<span class="token function">usermod</span> <span class="token parameter variable">-aG</span> <span class="token function">docker</span> ec2-user
+
+<span class="token function">docker</span> pull my-app:latest
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">80</span>:80 my-app:latest
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="_2-阿里云部署"><a href="#_2-阿里云部署" class="header-anchor">#</a> 2. 阿里云部署</h3> <h4 id="oss-cdn"><a href="#oss-cdn" class="header-anchor">#</a> OSS + CDN</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 上传到 OSS</span>
+ossutil <span class="token function">cp</span> <span class="token parameter variable">-r</span> ./dist oss://my-bucket/
+
+<span class="token comment"># 配置 CDN</span>
+aliyun cdn AddCdnDomain <span class="token punctuation">\</span>
+  <span class="token parameter variable">--DomainName</span> my-app.example.com <span class="token punctuation">\</span>
+  <span class="token parameter variable">--CdnType</span> web <span class="token punctuation">\</span>
+  <span class="token parameter variable">--SceneType</span> video <span class="token punctuation">\</span>
+  <span class="token parameter variable">--Sources.1.Type</span> oss <span class="token punctuation">\</span>
+  <span class="token parameter variable">--Sources.1.Content</span> my-bucket.oss-cn-hangzhou.aliyuncs.com
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h4 id="ecs-部署"><a href="#ecs-部署" class="header-anchor">#</a> ECS 部署</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 创建 ECS 实例</span>
+aliyun ecs CreateInstance <span class="token punctuation">\</span>
+  <span class="token parameter variable">--RegionId</span> cn-hangzhou <span class="token punctuation">\</span>
+  <span class="token parameter variable">--ImageId</span> ubuntu_18_04_64_20G_alibase_20190624.vhd <span class="token punctuation">\</span>
+  <span class="token parameter variable">--InstanceType</span> ecs.t6-c1m1.large <span class="token punctuation">\</span>
+  <span class="token parameter variable">--SecurityGroupId</span> sg-bp123456789 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--VSwitchId</span> vsw-bp123456789
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="_3-vercel-部署"><a href="#_3-vercel-部署" class="header-anchor">#</a> 3. Vercel 部署</h3> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token comment">// vercel.json</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;builds&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;src&quot;</span><span class="token operator">:</span> <span class="token string">&quot;package.json&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;use&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@vercel/static-build&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;config&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;distDir&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dist&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;routes&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;src&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/(.*)&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;dest&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/index.html&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;env&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;API_BASE_URL&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@api-base-url&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h2 id="kubernetes-部署"><a href="#kubernetes-部署" class="header-anchor">#</a> Kubernetes 部署</h2> <h3 id="_1-deployment"><a href="#_1-deployment" class="header-anchor">#</a> 1. Deployment</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># deployment.yaml</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">3</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">:</span>latest
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+        <span class="token key atrule">resources</span><span class="token punctuation">:</span>
+          <span class="token key atrule">requests</span><span class="token punctuation">:</span>
+            <span class="token key atrule">memory</span><span class="token punctuation">:</span> <span class="token string">&quot;64Mi&quot;</span>
+            <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token string">&quot;250m&quot;</span>
+          <span class="token key atrule">limits</span><span class="token punctuation">:</span>
+            <span class="token key atrule">memory</span><span class="token punctuation">:</span> <span class="token string">&quot;128Mi&quot;</span>
+            <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token string">&quot;500m&quot;</span>
+        <span class="token key atrule">livenessProbe</span><span class="token punctuation">:</span>
+          <span class="token key atrule">httpGet</span><span class="token punctuation">:</span>
+            <span class="token key atrule">path</span><span class="token punctuation">:</span> /
+            <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+          <span class="token key atrule">initialDelaySeconds</span><span class="token punctuation">:</span> <span class="token number">30</span>
+          <span class="token key atrule">periodSeconds</span><span class="token punctuation">:</span> <span class="token number">10</span>
+        <span class="token key atrule">readinessProbe</span><span class="token punctuation">:</span>
+          <span class="token key atrule">httpGet</span><span class="token punctuation">:</span>
+            <span class="token key atrule">path</span><span class="token punctuation">:</span> /
+            <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+          <span class="token key atrule">initialDelaySeconds</span><span class="token punctuation">:</span> <span class="token number">5</span>
+          <span class="token key atrule">periodSeconds</span><span class="token punctuation">:</span> <span class="token number">5</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><h3 id="_2-service"><a href="#_2-service" class="header-anchor">#</a> 2. Service</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># service.yaml</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>service
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+      <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> LoadBalancer
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_3-ingress"><a href="#_3-ingress" class="header-anchor">#</a> 3. Ingress</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># ingress.yaml</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> networking.k8s.io/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Ingress
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>ingress
+  <span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+    <span class="token key atrule">kubernetes.io/ingress.class</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">cert-manager.io/cluster-issuer</span><span class="token punctuation">:</span> letsencrypt<span class="token punctuation">-</span>prod
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">tls</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">hosts</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> my<span class="token punctuation">-</span>app.example.com
+    <span class="token key atrule">secretName</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>tls
+  <span class="token key atrule">rules</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">host</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app.example.com
+    <span class="token key atrule">http</span><span class="token punctuation">:</span>
+      <span class="token key atrule">paths</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">path</span><span class="token punctuation">:</span> /
+        <span class="token key atrule">pathType</span><span class="token punctuation">:</span> Prefix
+        <span class="token key atrule">backend</span><span class="token punctuation">:</span>
+          <span class="token key atrule">service</span><span class="token punctuation">:</span>
+            <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>service
+            <span class="token key atrule">port</span><span class="token punctuation">:</span>
+              <span class="token key atrule">number</span><span class="token punctuation">:</span> <span class="token number">80</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="_4-configmap"><a href="#_4-configmap" class="header-anchor">#</a> 4. ConfigMap</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># configmap.yaml</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ConfigMap
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>config
+<span class="token key atrule">data</span><span class="token punctuation">:</span>
+  <span class="token key atrule">API_BASE_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;https://api.example.com&quot;</span>
+  <span class="token key atrule">CDN_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;https://cdn.example.com&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="_5-secret"><a href="#_5-secret" class="header-anchor">#</a> 5. Secret</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># secret.yaml</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Secret
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>secret
+<span class="token key atrule">type</span><span class="token punctuation">:</span> Opaque
+<span class="token key atrule">stringData</span><span class="token punctuation">:</span>
+  <span class="token key atrule">API_KEY</span><span class="token punctuation">:</span> <span class="token string">&quot;your-api-key&quot;</span>
+  <span class="token key atrule">JWT_SECRET</span><span class="token punctuation">:</span> <span class="token string">&quot;your-jwt-secret&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="蓝绿部署"><a href="#蓝绿部署" class="header-anchor">#</a> 蓝绿部署</h2> <h3 id="_1-策略说明"><a href="#_1-策略说明" class="header-anchor">#</a> 1. 策略说明</h3> <p>蓝绿部署是一种零停机部署策略，通过维护两个相同的生产环境（蓝色和绿色），在新版本部署完成后切换流量。</p> <h3 id="_2-实现方案"><a href="#_2-实现方案" class="header-anchor">#</a> 2. 实现方案</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># blue-green-deployment.yaml</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>blue
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">3</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+      <span class="token key atrule">version</span><span class="token punctuation">:</span> blue
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+        <span class="token key atrule">version</span><span class="token punctuation">:</span> blue
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">:</span>v1.0
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+<span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>green
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">3</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+      <span class="token key atrule">version</span><span class="token punctuation">:</span> green
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+        <span class="token key atrule">version</span><span class="token punctuation">:</span> green
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">:</span>v2.0
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+<span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>service
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+    <span class="token key atrule">version</span><span class="token punctuation">:</span> blue
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+      <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 切换流量到绿色环境</span>
+kubectl patch <span class="token function">service</span> my-app-service <span class="token parameter variable">-p</span> <span class="token string">'{&quot;spec&quot;:{&quot;selector&quot;:{&quot;version&quot;:&quot;green&quot;}}}'</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="金丝雀发布"><a href="#金丝雀发布" class="header-anchor">#</a> 金丝雀发布</h2> <h3 id="_1-策略说明-2"><a href="#_1-策略说明-2" class="header-anchor">#</a> 1. 策略说明</h3> <p>金丝雀发布是一种渐进式发布策略，先向小部分用户发布新版本，验证无误后再逐步扩大范围。</p> <h3 id="_2-实现方案-2"><a href="#_2-实现方案-2" class="header-anchor">#</a> 2. 实现方案</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># canary-deployment.yaml</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>stable
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">9</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+      <span class="token key atrule">track</span><span class="token punctuation">:</span> stable
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+        <span class="token key atrule">track</span><span class="token punctuation">:</span> stable
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">:</span>v1.0
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+<span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>canary
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+      <span class="token key atrule">track</span><span class="token punctuation">:</span> canary
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+        <span class="token key atrule">track</span><span class="token punctuation">:</span> canary
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">:</span>v2.0
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 逐步增加金丝雀版本副本数</span>
+kubectl scale deployment my-app-canary <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">2</span>
+kubectl scale deployment my-app-stable <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">8</span>
+
+<span class="token comment"># 完全切换到新版本</span>
+kubectl scale deployment my-app-canary <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">10</span>
+kubectl scale deployment my-app-stable <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">0</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="监控和日志"><a href="#监控和日志" class="header-anchor">#</a> 监控和日志</h2> <h3 id="_1-监控配置"><a href="#_1-监控配置" class="header-anchor">#</a> 1. 监控配置</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># prometheus.yaml</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ConfigMap
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> prometheus<span class="token punctuation">-</span>config
+<span class="token key atrule">data</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prometheus.yml</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+    global:
+      scrape_interval: 15s
+    scrape_configs:
+      - job_name: 'my-app'
+        static_configs:
+          - targets: ['my-app-service:80']</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_2-日志收集"><a href="#_2-日志收集" class="header-anchor">#</a> 2. 日志收集</h3> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># fluentd-daemonset.yaml</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> DaemonSet
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> fluentd
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> fluentd
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> fluentd
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> fluentd
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> fluent/fluentd<span class="token punctuation">-</span>kubernetes<span class="token punctuation">-</span>daemonset<span class="token punctuation">:</span>v1<span class="token punctuation">-</span>debian<span class="token punctuation">-</span>elasticsearch
+        <span class="token key atrule">env</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> FLUENT_ELASTICSEARCH_HOST
+          <span class="token key atrule">value</span><span class="token punctuation">:</span> <span class="token string">&quot;elasticsearch.logging&quot;</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> FLUENT_ELASTICSEARCH_PORT
+          <span class="token key atrule">value</span><span class="token punctuation">:</span> <span class="token string">&quot;9200&quot;</span>
+        <span class="token key atrule">volumeMounts</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> varlog
+          <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> /var/log
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> varlibdockercontainers
+          <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> /var/lib/docker/containers
+          <span class="token key atrule">readOnly</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+      <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> varlog
+        <span class="token key atrule">hostPath</span><span class="token punctuation">:</span>
+          <span class="token key atrule">path</span><span class="token punctuation">:</span> /var/log
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> varlibdockercontainers
+        <span class="token key atrule">hostPath</span><span class="token punctuation">:</span>
+          <span class="token key atrule">path</span><span class="token punctuation">:</span> /var/lib/docker/containers
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><h2 id="回滚策略"><a href="#回滚策略" class="header-anchor">#</a> 回滚策略</h2> <h3 id="_1-快速回滚"><a href="#_1-快速回滚" class="header-anchor">#</a> 1. 快速回滚</h3> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># Kubernetes 回滚</span>
+kubectl rollout undo deployment/my-app
+
+<span class="token comment"># 回滚到指定版本</span>
+kubectl rollout undo deployment/my-app --to-revision<span class="token operator">=</span><span class="token number">2</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="_2-蓝绿回滚"><a href="#_2-蓝绿回滚" class="header-anchor">#</a> 2. 蓝绿回滚</h3> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 切换回蓝色环境</span>
+kubectl patch <span class="token function">service</span> my-app-service <span class="token parameter variable">-p</span> <span class="token string">'{&quot;spec&quot;:{&quot;selector&quot;:{&quot;version&quot;:&quot;blue&quot;}}}'</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="_3-docker-回滚"><a href="#_3-docker-回滚" class="header-anchor">#</a> 3. Docker 回滚</h3> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 回滚到上一个版本</span>
+<span class="token function">docker</span> stop my-app
+<span class="token function">docker</span> <span class="token function">rm</span> my-app
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> my-app <span class="token parameter variable">-p</span> <span class="token number">80</span>:80 my-app:previous-version
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="最佳实践"><a href="#最佳实践" class="header-anchor">#</a> 最佳实践</h2> <h3 id="_1-环境隔离"><a href="#_1-环境隔离" class="header-anchor">#</a> 1. 环境隔离</h3> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 为不同环境使用不同的配置</span>
+<span class="token comment"># .env.development</span>
+<span class="token assign-left variable">API_BASE_URL</span><span class="token operator">=</span>http://localhost:5000/api
+
+<span class="token comment"># .env.production</span>
+<span class="token assign-left variable">API_BASE_URL</span><span class="token operator">=</span>https://api.example.com
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="_2-健康检查"><a href="#_2-健康检查" class="header-anchor">#</a> 2. 健康检查</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// health-check.js</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/health'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token string">'healthy'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">timestamp</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toISOString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">uptime</span><span class="token operator">:</span> process<span class="token punctuation">.</span><span class="token function">uptime</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="_3-优雅关闭"><a href="#_3-优雅关闭" class="header-anchor">#</a> 3. 优雅关闭</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// graceful-shutdown.js</span>
+<span class="token keyword">const</span> server <span class="token operator">=</span> app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>port<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Server running on port </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>port<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+process<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'SIGTERM'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'SIGTERM signal received: closing HTTP server'</span><span class="token punctuation">)</span>
+  server<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'HTTP server closed'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="_4-错误处理"><a href="#_4-错误处理" class="header-anchor">#</a> 4. 错误处理</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// error-handling.js</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">.</span>stack<span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token string">'Internal Server Error'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">message</span><span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">'development'</span> <span class="token operator">?</span> err<span class="token punctuation">.</span>message <span class="token operator">:</span> <span class="token keyword">undefined</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>部署策略是前端工程化的重要组成部分，需要：</p> <ol><li><strong>选择合适的部署方式</strong>：根据项目需求选择容器化、云平台或 K8s 部署</li> <li><strong>实现自动化部署</strong>：使用 CI/CD 工具实现自动化部署流程</li> <li><strong>采用渐进式发布</strong>：使用蓝绿部署或金丝雀发布降低风险</li> <li><strong>完善监控和日志</strong>：建立完善的监控和日志系统</li> <li><strong>制定回滚策略</strong>：确保出现问题时能够快速回滚</li> <li><strong>持续优化</strong>：根据实际情况持续优化部署流程</li></ol> <p>通过建立完善的部署策略，可以确保应用的稳定运行和快速迭代。记住，部署不是一次性的事情，而是一个持续优化的过程。</p></div> <!----></div> <div class="toc-container-sidebar"><div class="pos-box"><div class="icon-arrow"></div> <div class="scroll-box" style="max-height:86vh"><div style="font-weight:bold;">前端工程化之部署策略</div> <hr> <div class="toc-box"><ul class="toc-sidebar-links"><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#部署概述" class="toc-sidebar-link">部署概述</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#部署的重要性" class="toc-sidebar-link">部署的重要性</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#部署目标" class="toc-sidebar-link">部署目标</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#部署环境" class="toc-sidebar-link">部署环境</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_1-开发环境" class="toc-sidebar-link">1. 开发环境</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_2-测试环境" class="toc-sidebar-link">2. 测试环境</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_3-生产环境" class="toc-sidebar-link">3. 生产环境</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#容器化部署" class="toc-sidebar-link">容器化部署</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_1-docker-配置" class="toc-sidebar-link">1. Docker 配置</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#dockerfile" class="toc-sidebar-link">Dockerfile</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#dockerfile-dev" class="toc-sidebar-link">Dockerfile.dev</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_2-nginx-配置" class="toc-sidebar-link">2. Nginx 配置</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#ci-cd-部署" class="toc-sidebar-link">CI/CD 部署</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_1-github-actions" class="toc-sidebar-link">1. GitHub Actions</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_2-gitlab-ci" class="toc-sidebar-link">2. GitLab CI</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_3-jenkins-pipeline" class="toc-sidebar-link">3. Jenkins Pipeline</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#云平台部署" class="toc-sidebar-link">云平台部署</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_1-aws-部署" class="toc-sidebar-link">1. AWS 部署</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#s3-cloudfront" class="toc-sidebar-link">S3 + CloudFront</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#ec2-部署" class="toc-sidebar-link">EC2 部署</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_2-阿里云部署" class="toc-sidebar-link">2. 阿里云部署</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#oss-cdn" class="toc-sidebar-link">OSS + CDN</a></li><li class="toc-sidebar-sub-header toc-sidebar-depth-4"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#ecs-部署" class="toc-sidebar-link">ECS 部署</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_3-vercel-部署" class="toc-sidebar-link">3. Vercel 部署</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#kubernetes-部署" class="toc-sidebar-link">Kubernetes 部署</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_1-deployment" class="toc-sidebar-link">1. Deployment</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_2-service" class="toc-sidebar-link">2. Service</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_3-ingress" class="toc-sidebar-link">3. Ingress</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_4-configmap" class="toc-sidebar-link">4. ConfigMap</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_5-secret" class="toc-sidebar-link">5. Secret</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#蓝绿部署" class="toc-sidebar-link">蓝绿部署</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_1-策略说明" class="toc-sidebar-link">1. 策略说明</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_2-实现方案" class="toc-sidebar-link">2. 实现方案</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#金丝雀发布" class="toc-sidebar-link">金丝雀发布</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_1-策略说明-2" class="toc-sidebar-link">1. 策略说明</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_2-实现方案-2" class="toc-sidebar-link">2. 实现方案</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#监控和日志" class="toc-sidebar-link">监控和日志</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_1-监控配置" class="toc-sidebar-link">1. 监控配置</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_2-日志收集" class="toc-sidebar-link">2. 日志收集</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#回滚策略" class="toc-sidebar-link">回滚策略</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_1-快速回滚" class="toc-sidebar-link">1. 快速回滚</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_2-蓝绿回滚" class="toc-sidebar-link">2. 蓝绿回滚</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_3-docker-回滚" class="toc-sidebar-link">3. Docker 回滚</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#最佳实践" class="toc-sidebar-link">最佳实践</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_1-环境隔离" class="toc-sidebar-link">1. 环境隔离</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_2-健康检查" class="toc-sidebar-link">2. 健康检查</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_3-优雅关闭" class="toc-sidebar-link">3. 优雅关闭</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#_4-错误处理" class="toc-sidebar-link">4. 错误处理</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/#总结" class="toc-sidebar-link">总结</a><ul class="toc-sidebar-sub-headers"></ul></li></ul></div></div></div></div></div></main></div><div class="global-ui"><!----></div></div>
+    <script src="/blog/assets/js/app.06904aa3.js" defer></script><script src="/blog/assets/js/2.f4db22c0.js" defer></script><script src="/blog/assets/js/74.b2f828de.js" defer></script>
+  </body>
+</html>

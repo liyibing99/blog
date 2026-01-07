@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前端工程化之项目结构设计 | Yibing&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/blog/favicon.ico">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?2675818a983a3131404cee835018f016";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+    <meta name="description" content="你好，我是李奕兵。这是我的个人博客，用来记录踩过的坑、学到的技术以及生活中的碎碎念。">
+    <meta property="article:modified_time" content="2026-01-07T20:57:10.000Z">
+    <meta property="og:site_name" content="Yibing&#39;s Blog">
+    <meta property="og:title" content="前端工程化之项目结构设计">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://github.com/tu3cn6/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+    <meta name="twitter:title" content="前端工程化之项目结构设计">
+    <meta name="twitter:url" content="https://github.com/tu3cn6/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="程序员, 编程, 计算机">
+    <meta property="article:tag" content="程序员">
+    <meta name="keywords" content="编程学习路线, 编程知识百科, Java, 前端, 开发, 编程分享, 项目, IT, 博客, blog">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.80609ca5.css" as="style"><link rel="preload" href="/blog/assets/js/app.06904aa3.js" as="script"><link rel="preload" href="/blog/assets/js/2.f4db22c0.js" as="script"><link rel="preload" href="/blog/assets/js/75.ef589a84.js" as="script"><link rel="prefetch" href="/blog/assets/js/1.772e8449.js"><link rel="prefetch" href="/blog/assets/js/10.40b6837e.js"><link rel="prefetch" href="/blog/assets/js/11.78a8555f.js"><link rel="prefetch" href="/blog/assets/js/12.0d5ef7f0.js"><link rel="prefetch" href="/blog/assets/js/13.8352f638.js"><link rel="prefetch" href="/blog/assets/js/14.c7dc96c5.js"><link rel="prefetch" href="/blog/assets/js/15.970a8ca5.js"><link rel="prefetch" href="/blog/assets/js/16.ac3baac4.js"><link rel="prefetch" href="/blog/assets/js/17.c186ca40.js"><link rel="prefetch" href="/blog/assets/js/18.d0f0bd51.js"><link rel="prefetch" href="/blog/assets/js/19.5740e4d6.js"><link rel="prefetch" href="/blog/assets/js/20.8885a4fa.js"><link rel="prefetch" href="/blog/assets/js/21.2a33c70e.js"><link rel="prefetch" href="/blog/assets/js/22.3e8347a6.js"><link rel="prefetch" href="/blog/assets/js/23.ceb5a5ff.js"><link rel="prefetch" href="/blog/assets/js/24.e1d129a3.js"><link rel="prefetch" href="/blog/assets/js/25.15e1f641.js"><link rel="prefetch" href="/blog/assets/js/26.35b2bbdc.js"><link rel="prefetch" href="/blog/assets/js/27.2202846e.js"><link rel="prefetch" href="/blog/assets/js/28.be2f64ba.js"><link rel="prefetch" href="/blog/assets/js/29.5cff4c5c.js"><link rel="prefetch" href="/blog/assets/js/3.4dc033c7.js"><link rel="prefetch" href="/blog/assets/js/30.a2448555.js"><link rel="prefetch" href="/blog/assets/js/31.8b44d617.js"><link rel="prefetch" href="/blog/assets/js/32.24612149.js"><link rel="prefetch" href="/blog/assets/js/33.9d59952b.js"><link rel="prefetch" href="/blog/assets/js/34.e38a5959.js"><link rel="prefetch" href="/blog/assets/js/35.61905ede.js"><link rel="prefetch" href="/blog/assets/js/36.4e66badc.js"><link rel="prefetch" href="/blog/assets/js/37.35efe489.js"><link rel="prefetch" href="/blog/assets/js/38.43860060.js"><link rel="prefetch" href="/blog/assets/js/39.6f68f650.js"><link rel="prefetch" href="/blog/assets/js/4.2f502b73.js"><link rel="prefetch" href="/blog/assets/js/40.38e71f9c.js"><link rel="prefetch" href="/blog/assets/js/41.2f322aa9.js"><link rel="prefetch" href="/blog/assets/js/42.70f236fc.js"><link rel="prefetch" href="/blog/assets/js/43.e4cc18eb.js"><link rel="prefetch" href="/blog/assets/js/44.b0385cba.js"><link rel="prefetch" href="/blog/assets/js/45.53635035.js"><link rel="prefetch" href="/blog/assets/js/46.115a38e6.js"><link rel="prefetch" href="/blog/assets/js/47.16b28a03.js"><link rel="prefetch" href="/blog/assets/js/48.df68afc4.js"><link rel="prefetch" href="/blog/assets/js/49.98c59efc.js"><link rel="prefetch" href="/blog/assets/js/5.7b1f056c.js"><link rel="prefetch" href="/blog/assets/js/50.b9762e5c.js"><link rel="prefetch" href="/blog/assets/js/51.cd690f38.js"><link rel="prefetch" href="/blog/assets/js/52.2acc35ef.js"><link rel="prefetch" href="/blog/assets/js/53.3057074a.js"><link rel="prefetch" href="/blog/assets/js/54.9b06af7b.js"><link rel="prefetch" href="/blog/assets/js/55.a93cd97e.js"><link rel="prefetch" href="/blog/assets/js/56.d0c21af0.js"><link rel="prefetch" href="/blog/assets/js/57.ca9e7d1e.js"><link rel="prefetch" href="/blog/assets/js/58.5801ee19.js"><link rel="prefetch" href="/blog/assets/js/59.a89f9492.js"><link rel="prefetch" href="/blog/assets/js/6.056886f1.js"><link rel="prefetch" href="/blog/assets/js/60.9b246fc5.js"><link rel="prefetch" href="/blog/assets/js/61.f84d67a0.js"><link rel="prefetch" href="/blog/assets/js/62.8361b31f.js"><link rel="prefetch" href="/blog/assets/js/63.35569072.js"><link rel="prefetch" href="/blog/assets/js/64.6c2478e6.js"><link rel="prefetch" href="/blog/assets/js/65.28cd1dcf.js"><link rel="prefetch" href="/blog/assets/js/66.be4a9670.js"><link rel="prefetch" href="/blog/assets/js/67.64e6eaa2.js"><link rel="prefetch" href="/blog/assets/js/68.72d5cc81.js"><link rel="prefetch" href="/blog/assets/js/69.aedc3bb0.js"><link rel="prefetch" href="/blog/assets/js/7.a96cecf9.js"><link rel="prefetch" href="/blog/assets/js/70.c255e0c6.js"><link rel="prefetch" href="/blog/assets/js/71.cdd9c735.js"><link rel="prefetch" href="/blog/assets/js/72.7524cbcb.js"><link rel="prefetch" href="/blog/assets/js/73.155182b9.js"><link rel="prefetch" href="/blog/assets/js/74.b2f828de.js"><link rel="prefetch" href="/blog/assets/js/76.8f9b9ca8.js"><link rel="prefetch" href="/blog/assets/js/77.2d1b52cb.js"><link rel="prefetch" href="/blog/assets/js/78.0facbcfb.js"><link rel="prefetch" href="/blog/assets/js/79.71a61efa.js"><link rel="prefetch" href="/blog/assets/js/80.e4378d4c.js"><link rel="prefetch" href="/blog/assets/js/81.8f074454.js"><link rel="prefetch" href="/blog/assets/js/82.38a78d96.js"><link rel="prefetch" href="/blog/assets/js/83.bc1d3c22.js"><link rel="prefetch" href="/blog/assets/js/84.a7d7245c.js"><link rel="prefetch" href="/blog/assets/js/85.f39453ca.js"><link rel="prefetch" href="/blog/assets/js/86.bd288457.js"><link rel="prefetch" href="/blog/assets/js/87.18ba0462.js"><link rel="prefetch" href="/blog/assets/js/88.19230304.js"><link rel="prefetch" href="/blog/assets/js/89.d4f0b545.js"><link rel="prefetch" href="/blog/assets/js/vendors~docsearch.9f962556.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.80609ca5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/logo.png" alt="Yibing's Blog" class="logo"> <span class="site-name can-hide">Yibing's Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/工作思考及感悟/" class="nav-link">
+  工作思考及感悟
+</a></div><div class="nav-item"><a href="/blog/学习路线/" class="nav-link">
+  学习路线
+</a></div> <a href="https://github.com/tu3cn6" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/工作思考及感悟/" class="nav-link">
+  工作思考及感悟
+</a></div><div class="nav-item"><a href="/blog/学习路线/" class="nav-link">
+  学习路线
+</a></div> <a href="https://github.com/tu3cn6" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/blog/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83%E5%8F%8A%E6%84%9F%E6%82%9F/" class="sidebar-link">工作思考及感悟</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>webpack 完全教程</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>思考及感悟</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E6%8A%8A2m%E7%9A%84%E6%96%87%E4%BB%B6%E5%8F%98%E4%B8%BA75k%E7%9A%84%E8%BF%87%E7%A8%8B/" class="sidebar-link">前端性能优化（把2M的文件变为75K的过程）</a></li><li><a href="/blog/http-%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/" class="sidebar-link">HTTP 缓存策略</a></li><li><a href="/blog/%E5%B8%B8%E8%A7%81%E7%9A%84web%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="sidebar-link">常见的web安全问题总结</a></li><li><a href="/blog/%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E5%92%8C%E4%B8%9A%E5%8A%A1%E7%BB%84%E4%BB%B6/" class="sidebar-link">如何区分基础组件和业务组件</a></li><li><a href="/blog/flex-%E5%B8%83%E5%B1%80%E5%9C%A8%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/" class="sidebar-link">flex 布局在移动端的兼容性问题</a></li><li><a href="/blog/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7%E4%B8%8E%E5%AE%9E%E8%B7%B5/" class="sidebar-link">浏览器渲染原理及性能优化技巧与实践</a></li><li><a href="/blog/%E7%A7%BB%E5%8A%A8%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AD%96%E7%95%A5/" class="sidebar-link">移动前端性能优化的一些策略</a></li><li><a href="/blog/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E6%96%B9%E6%A1%88/" class="sidebar-link">跨平台开发方案</a></li><li><a href="/blog/%E5%85%B3%E4%BA%8E%E5%A4%84%E7%90%86%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E8%AE%A8%E8%AE%BA/" class="sidebar-link">关于处理跨域问题的讨论</a></li><li><a href="/blog/%E6%89%AB%E7%9B%B2crlf%E3%80%81cr%E3%80%81lf%E9%83%BD%E6%98%AF%E4%BB%80%E4%B9%88%E9%AC%BC/" class="sidebar-link">扫盲CRLF、CR、LF都是什么鬼？</a></li><li><a href="/blog/%E5%AF%B9%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%AD%E7%BB%84%E4%BB%B6%E3%80%81%E6%8F%92%E4%BB%B6%E3%80%81%E6%8E%A7%E4%BB%B6%E7%9A%84%E7%90%86%E8%A7%A3/" class="sidebar-link">对前端开发中组件、插件、控件的理解</a></li><li><a href="/blog/%E6%9B%B4%E5%B0%91-%E4%BD%86%E6%9B%B4%E5%A5%BD/" class="sidebar-link">更少，但更好</a></li><li><a href="/blog/_6%E6%9C%8812-6%E6%9C%8817%E6%97%A5-%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83%E7%AF%87/" class="sidebar-link">6月12-6月17日~工作思考篇</a></li><li><a href="/blog/%E5%AF%B9%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%A4%E7%82%B9%E5%BB%BA%E8%AE%AE/" class="sidebar-link">对日常开发的两点建议</a></li><li><a href="/blog/%E4%B8%8B%E4%B8%80%E6%AD%A5%E6%88%91%E4%BB%AC%E8%AF%A5%E6%80%8E%E4%B9%88%E8%B5%B0/" class="sidebar-link">下一步我们该怎么走</a></li><li><a href="/blog/%E5%83%8F%E5%86%99%E4%BB%A3%E7%A0%81%E4%B8%80%E6%A0%B7%E5%86%99%E6%96%87%E6%A1%A3-%E4%B8%A5%E8%B0%A8-%E5%83%8F%E5%86%99%E6%96%87%E6%A1%A3%E4%B8%80%E6%A0%B7%E5%86%99%E4%BB%A3%E7%A0%81-%E8%A7%84%E8%8C%83/" class="sidebar-link">像写代码一样写文档，严谨！像写文档一样写代码，规范！</a></li><li><a href="/blog/vue3-composition-api-%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" class="sidebar-link">Vue3 Composition API 实战指南</a></li><li><a href="/blog/typescript-%E5%9C%A8%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="sidebar-link">TypeScript 在前端项目中的最佳实践</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B-ci-cd-%E5%AE%9E%E8%B7%B5/" class="sidebar-link">前端工程化之 CI/CD 实践</a></li><li><a href="/blog/%E5%BE%AE%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" class="sidebar-link">微前端架构设计与实现</a></li><li><a href="/blog/webassembly-%E5%9C%A8%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" class="sidebar-link">WebAssembly 在前端性能优化中的应用</a></li><li><a href="/blog/react-hooks-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="sidebar-link">React Hooks 最佳实践</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88%E5%AF%B9%E6%AF%94/" class="sidebar-link">前端状态管理方案对比</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E4%B8%8E%E4%BC%98%E5%8C%96/" class="sidebar-link">前端性能监控与优化</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E5%AE%9E%E8%B7%B5/" class="sidebar-link">前端安全防护实践</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5%E4%B8%8E%E5%AE%9E%E8%B7%B5/" class="sidebar-link">前端测试策略与实践</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" class="sidebar-link">前端工程化之代码规范</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/" aria-current="page" class="active sidebar-link">前端工程化之项目结构设计</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#项目结构设计原则" class="sidebar-link">项目结构设计原则</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#通用项目结构" class="sidebar-link">通用项目结构</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#react-项目结构" class="sidebar-link">React 项目结构</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#vue-项目结构" class="sidebar-link">Vue 项目结构</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#微前端项目结构" class="sidebar-link">微前端项目结构</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#monorepo-项目结构" class="sidebar-link">Monorepo 项目结构</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#配置文件组织" class="sidebar-link">配置文件组织</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#组件组织策略" class="sidebar-link">组件组织策略</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#样式组织" class="sidebar-link">样式组织</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#测试文件组织" class="sidebar-link">测试文件组织</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#最佳实践" class="sidebar-link">最佳实践</a></li><li class="sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E6%A8%A1%E5%9D%97%E5%8C%96%E5%BC%80%E5%8F%91/" class="sidebar-link">前端工程化之模块化开发</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E6%9E%84%E5%BB%BA%E4%BC%98%E5%8C%96/" class="sidebar-link">前端工程化之构建优化</a></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%83%A8%E7%BD%B2%E7%AD%96%E7%95%A5/" class="sidebar-link">前端工程化之部署策略</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="content"><div style="width:100%"><div class="theme-default-content custom-content content__default"><h1 id="前端工程化之项目结构设计"><a href="#前端工程化之项目结构设计" class="header-anchor">#</a> 前端工程化之项目结构设计</h1> <p>良好的项目结构是前端工程化的基础，它直接影响项目的可维护性、可扩展性和开发效率。本文将详细介绍前端项目结构设计的最佳实践。</p> <h2 id="项目结构设计原则"><a href="#项目结构设计原则" class="header-anchor">#</a> 项目结构设计原则</h2> <h3 id="_1-单一职责原则"><a href="#_1-单一职责原则" class="header-anchor">#</a> 1. 单一职责原则</h3> <p>每个目录和文件应该有明确的职责，避免功能混杂。</p> <h3 id="_2-按功能划分"><a href="#_2-按功能划分" class="header-anchor">#</a> 2. 按功能划分</h3> <p>根据业务功能而非技术类型来组织代码，使相关代码集中在一起。</p> <h3 id="_3-可扩展性"><a href="#_3-可扩展性" class="header-anchor">#</a> 3. 可扩展性</h3> <p>项目结构应该能够随着项目增长而扩展，不需要频繁重构。</p> <h3 id="_4-清晰的层次"><a href="#_4-清晰的层次" class="header-anchor">#</a> 4. 清晰的层次</h3> <p>建立清晰的目录层次，便于快速定位代码。</p> <h2 id="通用项目结构"><a href="#通用项目结构" class="header-anchor">#</a> 通用项目结构</h2> <h3 id="基础结构"><a href="#基础结构" class="header-anchor">#</a> 基础结构</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>project-root/
+├── public/                 # 静态资源
+│   ├── index.html
+│   ├── favicon.ico
+│   └── assets/
+├── src/                    # 源代码
+│   ├── assets/            # 资源文件
+│   ├── components/        # 通用组件
+│   ├── pages/             # 页面组件
+│   ├── hooks/             # 自定义 Hooks
+│   ├── services/          # API 服务
+│   ├── store/             # 状态管理
+│   ├── utils/             # 工具函数
+│   ├── types/             # TypeScript 类型定义
+│   ├── styles/            # 全局样式
+│   ├── constants/         # 常量定义
+│   ├── config/            # 配置文件
+│   └── main.js            # 入口文件
+├── tests/                 # 测试文件
+├── docs/                  # 文档
+├── .gitignore
+├── .eslintrc.js
+├── .prettierrc.js
+├── package.json
+└── README.md
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h3 id="详细结构说明"><a href="#详细结构说明" class="header-anchor">#</a> 详细结构说明</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>src/
+├── assets/                # 资源文件
+│   ├── images/           # 图片
+│   ├── fonts/            # 字体
+│   ├── icons/            # 图标
+│   └── styles/           # 全局样式文件
+│       ├── variables.scss
+│       ├── mixins.scss
+│       └── global.scss
+├── components/           # 通用组件
+│   ├── common/           # 通用基础组件
+│   │   ├── Button/
+│   │   ├── Input/
+│   │   └── Modal/
+│   ├── layout/           # 布局组件
+│   │   ├── Header/
+│   │   ├── Footer/
+│   │   └── Sidebar/
+│   └── business/         # 业务组件
+│       ├── UserCard/
+│       └── ProductList/
+├── pages/                # 页面组件
+│   ├── Home/
+│   │   ├── index.jsx
+│   │   ├── components/
+│   │   └── styles/
+│   ├── About/
+│   └── Contact/
+├── hooks/                # 自定义 Hooks
+│   ├── useAuth.js
+│   ├── useFetch.js
+│   └── useWindowSize.js
+├── services/             # API 服务
+│   ├── api.js            # API 配置
+│   ├── auth.js           # 认证服务
+│   ├── user.js           # 用户服务
+│   └── product.js        # 产品服务
+├── store/                # 状态管理
+│   ├── index.js
+│   ├── modules/
+│   │   ├── auth.js
+│   │   ├── user.js
+│   │   └── product.js
+│   └── types.js
+├── utils/                # 工具函数
+│   ├── request.js        # 请求封装
+│   ├── storage.js        # 本地存储
+│   ├── validate.js       # 验证函数
+│   └── format.js         # 格式化函数
+├── types/                # TypeScript 类型
+│   ├── api.ts
+│   ├── user.ts
+│   └── common.ts
+├── constants/            # 常量定义
+│   ├── api.js
+│   ├── routes.js
+│   └── config.js
+├── config/               # 配置文件
+│   ├── env.js
+│   └── index.js
+├── router/               # 路由配置
+│   ├── index.js
+│   └── routes.js
+├── App.jsx               # 根组件
+└── main.js               # 入口文件
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br></div></div><h2 id="react-项目结构"><a href="#react-项目结构" class="header-anchor">#</a> React 项目结构</h2> <h3 id="create-react-app-结构"><a href="#create-react-app-结构" class="header-anchor">#</a> Create React App 结构</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>my-react-app/
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   └── manifest.json
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── common/
+│   │   └── layout/
+│   ├── pages/
+│   │   ├── Home/
+│   │   ├── About/
+│   │   └── Dashboard/
+│   ├── hooks/
+│   ├── services/
+│   ├── store/
+│   │   ├── index.js
+│   │   └── slices/
+│   ├── utils/
+│   ├── types/
+│   ├── constants/
+│   ├── config/
+│   ├── router/
+│   ├── App.jsx
+│   └── index.js
+├── tests/
+├── .env
+├── .eslintrc.js
+├── .prettierrc.js
+├── package.json
+└── README.md
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><h3 id="next-js-项目结构"><a href="#next-js-项目结构" class="header-anchor">#</a> Next.js 项目结构</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>my-nextjs-app/
+├── public/
+│   ├── images/
+│   └── fonts/
+├── src/
+│   ├── app/                    # App Router
+│   │   ├── layout.js
+│   │   ├── page.js
+│   │   ├── globals.css
+│   │   ├── about/
+│   │   │   └── page.js
+│   │   └── dashboard/
+│   │       └── page.js
+│   ├── components/             # 组件
+│   │   ├── ui/                # UI 组件
+│   │   ├── layout/            # 布局组件
+│   │   └── features/          # 功能组件
+│   ├── lib/                   # 工具库
+│   │   ├── api.js
+│   │   ├── utils.js
+│   │   └── constants.js
+│   ├── hooks/                 # 自定义 Hooks
+│   ├── store/                 # 状态管理
+│   ├── types/                 # TypeScript 类型
+│   ├── styles/                # 样式文件
+│   └── config/                # 配置文件
+├── tests/
+├── .env.local
+├── .eslintrc.js
+├── next.config.js
+├── package.json
+└── README.md
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><h2 id="vue-项目结构"><a href="#vue-项目结构" class="header-anchor">#</a> Vue 项目结构</h2> <h3 id="vue-3-项目结构"><a href="#vue-3-项目结构" class="header-anchor">#</a> Vue 3 项目结构</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>my-vue-app/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── fonts/
+│   │   └── styles/
+│   ├── components/            # 组件
+│   │   ├── common/           # 通用组件
+│   │   ├── layout/           # 布局组件
+│   │   └── business/         # 业务组件
+│   ├── views/                 # 页面视图
+│   │   ├── Home.vue
+│   │   ├── About.vue
+│   │   └── Dashboard.vue
+│   ├── router/                # 路由配置
+│   │   └── index.js
+│   ├── store/                 # 状态管理
+│   │   ├── index.js
+│   │   └── modules/
+│   ├── api/                   # API 服务
+│   │   ├── index.js
+│   │   ├── auth.js
+│   │   └── user.js
+│   ├── composables/           # 组合式函数
+│   │   ├── useAuth.js
+│   │   └── useFetch.js
+│   ├── utils/                 # 工具函数
+│   │   ├── request.js
+│   │   ├── storage.js
+│   │   └── validate.js
+│   ├── types/                 # TypeScript 类型
+│   ├── constants/             # 常量定义
+│   ├── config/                # 配置文件
+│   ├── directives/            # 自定义指令
+│   ├── plugins/               # 插件
+│   ├── App.vue
+│   └── main.js
+├── tests/
+├── .env
+├── .eslintrc.js
+├── .prettierrc.js
+├── package.json
+└── README.md
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><h3 id="nuxt-3-项目结构"><a href="#nuxt-3-项目结构" class="header-anchor">#</a> Nuxt 3 项目结构</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>my-nuxt-app/
+├── public/
+│   ├── images/
+│   └── fonts/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── common/
+│   │   └── features/
+│   ├── composables/
+│   ├── layouts/
+│   │   ├── default.vue
+│   │   └── auth.vue
+│   ├── pages/
+│   │   ├── index.vue
+│   │   ├── about.vue
+│   │   └── dashboard/
+│   ├── plugins/
+│   ├── stores/
+│   ├── utils/
+│   ├── types/
+│   ├── middleware/
+│   ├── server/
+│   │   ├── api/
+│   │   └── routes/
+│   ├── app.vue
+│   └── nuxt.config.ts
+├── tests/
+├── .env
+├── .eslintrc.js
+├── package.json
+└── README.md
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><h2 id="微前端项目结构"><a href="#微前端项目结构" class="header-anchor">#</a> 微前端项目结构</h2> <h3 id="主应用结构"><a href="#主应用结构" class="header-anchor">#</a> 主应用结构</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>main-app/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── layouts/
+│   ├── pages/
+│   ├── micro-frontend/        # 微前端配置
+│   │   ├── apps.js           # 子应用配置
+│   │   └── lifecycle.js      # 生命周期钩子
+│   ├── router/
+│   ├── store/
+│   ├── utils/
+│   ├── App.jsx
+│   └── main.js
+├── tests/
+└── package.json
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="子应用结构"><a href="#子应用结构" class="header-anchor">#</a> 子应用结构</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>sub-app-1/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── router/
+│   ├── store/
+│   ├── utils/
+│   ├── public-path.js        # 微前端路径配置
+│   ├── App.jsx
+│   └── main.js
+├── tests/
+└── package.json
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="monorepo-项目结构"><a href="#monorepo-项目结构" class="header-anchor">#</a> Monorepo 项目结构</h2> <h3 id="使用-pnpm-workspace"><a href="#使用-pnpm-workspace" class="header-anchor">#</a> 使用 pnpm workspace</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>monorepo/
+├── apps/                     # 应用
+│   ├── web/                 # Web 应用
+│   │   ├── src/
+│   │   ├── public/
+│   │   └── package.json
+│   ├── admin/               # 管理后台
+│   │   ├── src/
+│   │   ├── public/
+│   │   └── package.json
+│   └── mobile/              # 移动应用
+│       ├── src/
+│       ├── public/
+│       └── package.json
+├── packages/                 # 共享包
+│   ├── ui/                  # UI 组件库
+│   │   ├── src/
+│   │   └── package.json
+│   ├── utils/               # 工具函数库
+│   │   ├── src/
+│   │   └── package.json
+│   ├── types/               # 类型定义
+│   │   ├── src/
+│   │   └── package.json
+│   └── config/              # 共享配置
+│       ├── eslint/
+│       ├── prettier/
+│       └── tsconfig/
+├── .gitignore
+├── pnpm-workspace.yaml
+├── package.json
+└── README.md
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><h3 id="使用-turborepo"><a href="#使用-turborepo" class="header-anchor">#</a> 使用 Turborepo</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>monorepo/
+├── apps/
+│   ├── web/
+│   ├── admin/
+│   └── mobile/
+├── packages/
+│   ├── ui/
+│   ├── utils/
+│   └── config/
+├── turbo.json
+├── package.json
+└── pnpm-workspace.yaml
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="配置文件组织"><a href="#配置文件组织" class="header-anchor">#</a> 配置文件组织</h2> <h3 id="环境配置"><a href="#环境配置" class="header-anchor">#</a> 环境配置</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>config/
+├── env.js                   # 环境配置
+├── webpack.js               # Webpack 配置
+├── vite.js                  # Vite 配置
+└── index.js                 # 导出所有配置
+
+// env.js
+const env = {
+  development: {
+    API_BASE_URL: 'http://localhost:3000/api',
+    CDN_URL: 'http://localhost:3001',
+  },
+  production: {
+    API_BASE_URL: 'https://api.example.com',
+    CDN_URL: 'https://cdn.example.com',
+  },
+}
+
+export default env[process.env.NODE_ENV]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h3 id="路由配置"><a href="#路由配置" class="header-anchor">#</a> 路由配置</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>router/
+├── index.js                 # 路由配置入口
+├── routes.js                # 路由定义
+└── guards.js                # 路由守卫
+
+// routes.js
+const routes = [
+  {
+    path: '/',
+    component: () =&gt; import('@/pages/Home'),
+    meta: { title: '首页' }
+  },
+  {
+    path: '/about',
+    component: () =&gt; import('@/pages/About'),
+    meta: { title: '关于' }
+  },
+  {
+    path: '/dashboard',
+    component: () =&gt; import('@/pages/Dashboard'),
+    meta: { title: '仪表盘', requiresAuth: true }
+  }
+]
+
+export default routes
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h3 id="状态管理配置"><a href="#状态管理配置" class="header-anchor">#</a> 状态管理配置</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>store/
+├── index.js                 # Store 入口
+├── modules/                 # 模块
+│   ├── auth.js
+│   ├── user.js
+│   └── product.js
+└── types.js                 # 类型定义
+
+// modules/auth.js
+const state = {
+  token: null,
+  user: null
+}
+
+const mutations = {
+  SET_TOKEN(state, token) {
+    state.token = token
+  },
+  SET_USER(state, user) {
+    state.user = user
+  }
+}
+
+const actions = {
+  async login({ commit }, credentials) {
+    const response = await api.login(credentials)
+    commit('SET_TOKEN', response.token)
+    commit('SET_USER', response.user)
+  }
+}
+
+const getters = {
+  isAuthenticated: state =&gt; !!state.token
+}
+
+export default {
+  namespaced: true,
+  state,
+  mutations,
+  actions,
+  getters
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br></div></div><h2 id="组件组织策略"><a href="#组件组织策略" class="header-anchor">#</a> 组件组织策略</h2> <h3 id="按功能划分"><a href="#按功能划分" class="header-anchor">#</a> 按功能划分</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>components/
+├── auth/                    # 认证相关组件
+│   ├── LoginForm/
+│   ├── RegisterForm/
+│   └── ForgotPassword/
+├── user/                    # 用户相关组件
+│   ├── UserProfile/
+│   ├── UserAvatar/
+│   └── UserMenu/
+└── product/                 # 产品相关组件
+    ├── ProductCard/
+    ├── ProductList/
+    └── ProductDetail/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="按类型划分"><a href="#按类型划分" class="header-anchor">#</a> 按类型划分</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>components/
+├── common/                  # 通用组件
+│   ├── Button/
+│   ├── Input/
+│   ├── Modal/
+│   └── Loading/
+├── layout/                  # 布局组件
+│   ├── Header/
+│   ├── Footer/
+│   ├── Sidebar/
+│   └── Container/
+└── business/                # 业务组件
+    ├── UserCard/
+    ├── OrderList/
+    └── ShoppingCart/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h2 id="样式组织"><a href="#样式组织" class="header-anchor">#</a> 样式组织</h2> <h3 id="css-modules"><a href="#css-modules" class="header-anchor">#</a> CSS Modules</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>src/
+├── components/
+│   ├── Button/
+│   │   ├── Button.jsx
+│   │   └── Button.module.css
+│   └── Card/
+│       ├── Card.jsx
+│       └── Card.module.css
+└── styles/
+    ├── variables.css
+    ├── mixins.css
+    └── global.css
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="scss"><a href="#scss" class="header-anchor">#</a> SCSS</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>src/
+├── styles/
+│   ├── abstracts/           # 抽象层
+│   │   ├── _variables.scss
+│   │   ├── _functions.scss
+│   │   └── _mixins.scss
+│   ├── base/               # 基础层
+│   │   ├── _reset.scss
+│   │   ├── _typography.scss
+│   │   └── _utilities.scss
+│   ├── components/         # 组件层
+│   │   ├── _buttons.scss
+│   │   ├── _cards.scss
+│   │   └── _forms.scss
+│   ├── layout/             # 布局层
+│   │   ├── _header.scss
+│   │   ├── _footer.scss
+│   │   └── _grid.scss
+│   └── main.scss           # 主文件
+└── components/
+    └── Button/
+        ├── Button.jsx
+        └── Button.scss
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h2 id="测试文件组织"><a href="#测试文件组织" class="header-anchor">#</a> 测试文件组织</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>tests/
+├── unit/                   # 单元测试
+│   ├── components/
+│   │   ├── Button.test.js
+│   │   └── Card.test.js
+│   ├── hooks/
+│   │   ├── useAuth.test.js
+│   │   └── useFetch.test.js
+│   └── utils/
+│       ├── request.test.js
+│       └── validate.test.js
+├── integration/            # 集成测试
+│   └── auth.test.js
+├── e2e/                    # 端到端测试
+│   ├── login.cy.js
+│   └── checkout.cy.js
+└── setup.js                # 测试配置
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="最佳实践"><a href="#最佳实践" class="header-anchor">#</a> 最佳实践</h2> <h3 id="_1-目录命名"><a href="#_1-目录命名" class="header-anchor">#</a> 1. 目录命名</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// 使用小写和连字符</span>
+user<span class="token operator">-</span>profile<span class="token operator">/</span>
+shopping<span class="token operator">-</span>cart<span class="token operator">/</span>
+order<span class="token operator">-</span>list<span class="token operator">/</span>
+
+<span class="token comment">// 避免使用空格和特殊字符</span>
+<span class="token comment">// 不推荐</span>
+User Profile<span class="token operator">/</span>
+Shopping Cart<span class="token operator">/</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="_2-文件命名"><a href="#_2-文件命名" class="header-anchor">#</a> 2. 文件命名</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// 组件文件使用帕斯卡命名法</span>
+UserProfile<span class="token punctuation">.</span>jsx
+Button<span class="token punctuation">.</span>jsx
+Modal<span class="token punctuation">.</span>jsx
+
+<span class="token comment">// 工具文件使用驼峰命名法</span>
+request<span class="token punctuation">.</span>js
+validate<span class="token punctuation">.</span>js
+format<span class="token punctuation">.</span>js
+
+<span class="token comment">// 常量文件使用全大写</span>
+<span class="token constant">API_CONSTANTS</span><span class="token punctuation">.</span>js
+<span class="token constant">CONFIG</span><span class="token punctuation">.</span>js
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_3-导入顺序"><a href="#_3-导入顺序" class="header-anchor">#</a> 3. 导入顺序</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// 1. React 和第三方库</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useSelector <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-redux'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useRouter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'next/router'</span>
+
+<span class="token comment">// 2. 组件</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/components/common/Button'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Header <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/components/layout/Header'</span>
+
+<span class="token comment">// 3. Hooks</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useAuth <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/hooks/useAuth'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useFetch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/hooks/useFetch'</span>
+
+<span class="token comment">// 4. 服务</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> authService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/services/auth'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> userService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/services/user'</span>
+
+<span class="token comment">// 5. 工具函数</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> formatDate <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/utils/format'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> validateEmail <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/utils/validate'</span>
+
+<span class="token comment">// 6. 常量</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">API_BASE_URL</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/constants/api'</span>
+
+<span class="token comment">// 7. 样式</span>
+<span class="token keyword">import</span> <span class="token string">'./UserProfile.module.css'</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h3 id="_4-相对路径-vs-绝对路径"><a href="#_4-相对路径-vs-绝对路径" class="header-anchor">#</a> 4. 相对路径 vs 绝对路径</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// 推荐使用绝对路径（通过别名配置）</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/components/common/Button'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useAuth <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/hooks/useAuth'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> formatDate <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/utils/format'</span>
+
+<span class="token comment">// 避免使用相对路径</span>
+<span class="token comment">// 不推荐</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../../components/common/Button'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useAuth <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../hooks/useAuth'</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="_5-组件文件组织"><a href="#_5-组件文件组织" class="header-anchor">#</a> 5. 组件文件组织</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// UserProfile/</span>
+<span class="token comment">// ├── index.jsx              # 主组件</span>
+<span class="token comment">// ├── UserProfile.jsx        # 组件实现</span>
+<span class="token comment">// ├── UserProfile.module.css # 样式</span>
+<span class="token comment">// ├── components/            # 子组件</span>
+<span class="token comment">// │   ├── UserAvatar/</span>
+<span class="token comment">// │   └── UserMenu/</span>
+<span class="token comment">// ├── hooks/                 # 组件专用 Hooks</span>
+<span class="token comment">// │   └── useUserProfile.js</span>
+<span class="token comment">// ├── utils/                 # 组件专用工具</span>
+<span class="token comment">// │   └── helpers.js</span>
+<span class="token comment">// └── __tests__/             # 测试文件</span>
+<span class="token comment">//     └── UserProfile.test.js</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>良好的项目结构是前端工程化的基础，需要：</p> <ol><li><strong>遵循原则</strong>：单一职责、按功能划分、可扩展性、清晰层次</li> <li><strong>选择合适的结构</strong>：根据项目规模和团队需求选择合适的项目结构</li> <li><strong>保持一致性</strong>：在整个项目中保持一致的命名和组织方式</li> <li><strong>定期审查</strong>：随着项目发展，定期审查和调整项目结构</li> <li><strong>文档化</strong>：为项目结构编写文档，帮助团队成员理解</li></ol> <p>通过建立清晰的项目结构，可以大大提高代码的可维护性和开发效率。记住，没有完美的项目结构，只有最适合当前项目的结构。</p></div> <!----></div> <div class="toc-container-sidebar"><div class="pos-box"><div class="icon-arrow"></div> <div class="scroll-box" style="max-height:86vh"><div style="font-weight:bold;">前端工程化之项目结构设计</div> <hr> <div class="toc-box"><ul class="toc-sidebar-links"><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#项目结构设计原则" class="toc-sidebar-link">项目结构设计原则</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#_1-单一职责原则" class="toc-sidebar-link">1. 单一职责原则</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#_2-按功能划分" class="toc-sidebar-link">2. 按功能划分</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#_3-可扩展性" class="toc-sidebar-link">3. 可扩展性</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#_4-清晰的层次" class="toc-sidebar-link">4. 清晰的层次</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#通用项目结构" class="toc-sidebar-link">通用项目结构</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#基础结构" class="toc-sidebar-link">基础结构</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#详细结构说明" class="toc-sidebar-link">详细结构说明</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#react-项目结构" class="toc-sidebar-link">React 项目结构</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#create-react-app-结构" class="toc-sidebar-link">Create React App 结构</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#next-js-项目结构" class="toc-sidebar-link">Next.js 项目结构</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#vue-项目结构" class="toc-sidebar-link">Vue 项目结构</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#vue-3-项目结构" class="toc-sidebar-link">Vue 3 项目结构</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#nuxt-3-项目结构" class="toc-sidebar-link">Nuxt 3 项目结构</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#微前端项目结构" class="toc-sidebar-link">微前端项目结构</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#主应用结构" class="toc-sidebar-link">主应用结构</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#子应用结构" class="toc-sidebar-link">子应用结构</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#monorepo-项目结构" class="toc-sidebar-link">Monorepo 项目结构</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#使用-pnpm-workspace" class="toc-sidebar-link">使用 pnpm workspace</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#使用-turborepo" class="toc-sidebar-link">使用 Turborepo</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#配置文件组织" class="toc-sidebar-link">配置文件组织</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#环境配置" class="toc-sidebar-link">环境配置</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#路由配置" class="toc-sidebar-link">路由配置</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#状态管理配置" class="toc-sidebar-link">状态管理配置</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#组件组织策略" class="toc-sidebar-link">组件组织策略</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#按功能划分" class="toc-sidebar-link">按功能划分</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#按类型划分" class="toc-sidebar-link">按类型划分</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#样式组织" class="toc-sidebar-link">样式组织</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#css-modules" class="toc-sidebar-link">CSS Modules</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#scss" class="toc-sidebar-link">SCSS</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#测试文件组织" class="toc-sidebar-link">测试文件组织</a><ul class="toc-sidebar-sub-headers"></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#最佳实践" class="toc-sidebar-link">最佳实践</a><ul class="toc-sidebar-sub-headers"><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#_1-目录命名" class="toc-sidebar-link">1. 目录命名</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#_2-文件命名" class="toc-sidebar-link">2. 文件命名</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#_3-导入顺序" class="toc-sidebar-link">3. 导入顺序</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#_4-相对路径-vs-绝对路径" class="toc-sidebar-link">4. 相对路径 vs 绝对路径</a></li><li class="toc-sidebar-sub-header"><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#_5-组件文件组织" class="toc-sidebar-link">5. 组件文件组织</a></li></ul></li><li><a href="/blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B9%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/#总结" class="toc-sidebar-link">总结</a><ul class="toc-sidebar-sub-headers"></ul></li></ul></div></div></div></div></div></main></div><div class="global-ui"><!----></div></div>
+    <script src="/blog/assets/js/app.06904aa3.js" defer></script><script src="/blog/assets/js/2.f4db22c0.js" defer></script><script src="/blog/assets/js/75.ef589a84.js" defer></script>
+  </body>
+</html>
